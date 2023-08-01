@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Medical Records History";
+    Layout = "~/Views/Shared/admin/_Layout.cshtml";
+}
+
+Nama Hewan : @ViewData["NamaHewan"]
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            @*<td>No</td>*@
+            <td>Tanggal Periksa</td>
+            <td>Dokter</td>
+            <td>Bobot</td>
+            <td>Umur</td>
+            <td>Diagnosa</td>
+            <td>Terapi</td>
+            <td colspan="2" align="center">Action</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var data in ViewData["DataHistory"] as IEnumerable<Black_Rose.Models.ExaminationFormModel>)
+        {
+        <tr>
+            <td>@String.Format("{0:dd/MM/yyyy}", data.examdate)</td>
+            <td>@data.iddokter </td>
+            <td>@data.weight </td>
+            <td>@data.age</td>
+            <td>@data.diagnose </td>
+            <td>@data.therapy </td>
+            <td>@*<a href="https://localhost:44360/MedicalRecord/Examination/@data.id"><i class="icofont-search"></i></a>*@</td>
+
+        </tr>
+        }
+    </tbody>
+</table>

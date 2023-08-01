@@ -1,0 +1,69 @@
+﻿@{
+    ViewData["Title"] = "Create Patient";
+    Layout = "~/Views/Shared/admin/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+    <h3 class="card-title">Form Pasien New</h3>
+    </div>
+    <div class="card-body">
+        <form method="post" asp-controller="Patient" asp-action="Save" enctype="multipart/form-data">
+            <div class="form-group">
+                <label>First Name</label>
+                <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Insert First Name" />
+            </div>
+            <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Insert Last Name" />
+            </div>
+            <div class="form-group">
+                <label>Address</label>
+                <input type="text" class="form-control" id="address" name="address" placeholder="Insert Address" />
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Insert Email" />
+            </div>
+            <div class="form-group">
+                <label>KTP</label>
+                <input type="text" class="form-control" id="ktp" name="ktp" placeholder="Insert KTP Number" />
+            </div>
+            <div class="form-group">
+                <label>Phone</label>
+                <input type="text" class="form-control" id="phone" name="phone" placeholder="Insert Phone Number" />
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+</div>
+
+
+<script>
+    function setInputFilter(textbox, inputFilter) {
+        ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function (event) {
+            textbox.addEventListener(event, function () {
+                if (inputFilter(this.value)) {
+                    this.oldValue = this.value;
+                    this.oldSelectionStart = this.selectionStart;
+                    this.oldSelectionEnd = this.selectionEnd;
+                } else if (this.hasOwnProperty("oldValue")) {
+                    this.value = this.oldValue;
+                    this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+                } else {
+                    this.value = "";
+                }
+            });
+        });
+    }
+
+
+    // Install input filters.
+    setInputFilter(document.getElementById("ktp"), function (value) {
+        return /^-?\d*$/.test(value);
+    });
+
+    setInputFilter(document.getElementById("phone"), function (value) {
+        return /^-?\d*$/.test(value);
+    });
+</script>

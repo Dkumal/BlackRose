@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "List User";
+    Layout = "~/Views/Shared/admin/_Layout.cshtml";
+}
+
+@using Black_Rose.Models;
+@model  Black_Rose.Models.ClassificationModel;
+
+<div class="col-12">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">List Klasifikasi Hewan</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-striped table-hover">
+                <thead>
+                    <tr>
+                        @*<td>No</td>*@
+                        <td>Name</td>
+                        <td>Description</td>
+                        <td colspan="2" align="center">Action</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var data in ViewData["classifications"] as IEnumerable<Black_Rose.Models.ClassificationModel>)
+                    {
+                        <tr>
+                            <td>@data.name</td>
+                            <td>@data.description</td>
+
+                            <td><a href="/classification/editpage/@data.id">Edit</a></td>
+                            <td><a href="/classification/delete/@data.id">Delete</a></td>
+
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <button type="button" class="btn btn-primary" onclick="ToCreate()">New Classification</button>
+
+</div>
+
+<script>
+    function ToCreate() {
+        window.location = "/classification/AddPage";
+    };
+</script>

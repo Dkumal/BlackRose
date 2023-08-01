@@ -1,0 +1,85 @@
+﻿@{
+    ViewData["Title"] = "Edit Pet";
+    Layout = "~/Views/Shared/admin/_Layout.cshtml";
+
+}
+
+@using Black_Rose.Models;
+@model Black_Rose.Models.PetModel;
+
+@{
+    PetModel data = (PetModel)ViewData["pet"];
+
+
+}
+
+
+
+<form method="post" asp-controller="Pets" asp-action="Save" enctype="multipart/form-data">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Pemilik</label>
+            @Html.DropDownListFor(x => x.idpemilik, (IEnumerable<SelectListItem>)ViewData["ListPemilik"], new { @class = "form-control" })
+        </div>
+        <div class="form-group col-md-6">
+            <label>Klasifikasi</label>
+            @Html.DropDownListFor(x => x.idklasifikasi, (IEnumerable<SelectListItem>)ViewData["ListKlasifikasi"], new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Sex</label>
+            <select id="sex" class="form-control" asp-for="sex">
+                <option value="1">Male</option>
+                <option value="2">Female</option>
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label>Nama</label>
+            <input type="text" class="form-control" id="nama" asp-for="nama" value="@data.nama"/>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Jenis</label>
+            <input type="text" class="form-control" id="jenis" asp-for="jenis" value="@data.jenis"/>
+        </div>
+        <div class="form-group col-md-6">
+            <label>Warna</label>
+            <input type="text" class="form-control" id="warna" asp-for="warna" value="@data.warna"/>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Pola</label>
+            <input type="text" class="form-control" id="pola" asp-for="pola" value="@data.pola"/>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-danger">Save</button>
+            </div>
+            <div class="col-md-4">
+                <button type="reset" class="btn btn-primary">Clear</button>
+            </div>
+            <div class="col-md-4">
+                <button type="button" class="btn btn-info" onclick="toList();">Back</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script>
+    $("document").ready(function () {
+        $('#idpemilik').val('@data.idpemilik');
+        $('#idklasifikasi').val('@data.idklasifikasi');
+        $('#sex').val('@data.sex');
+        });
+    function toList() {
+        window.location = "/pets/List";
+    };
+
+
+
+</script> 

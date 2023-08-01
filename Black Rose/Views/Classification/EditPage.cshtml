@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Edit Classification";
+    Layout = "~/Views/Shared/admin/_Layout.cshtml";
+
+}
+
+@using Black_Rose.Models;
+@model Black_Rose.Models.ClassificationModel;
+
+@{
+    ClassificationModel data = (ClassificationModel)ViewData["classification"];
+    var name = data.name;
+    var desc = data.description;
+
+    var id = data.id;
+
+}
+
+<form method="post" asp-controller="User" asp-action="edit" enctype="multipart/form-data">
+    <div class="form-group">
+        <label>First Name</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Insert First Name" value="@name" />
+    </div>
+    <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" class="form-control" id="description" name="description" placeholder="Insert Last Name" value="@desc"/>
+    </div>
+    
+        <input type="hidden" id="id" name="id" value="@id.ToString()" />
+        <button type="submit" class="btn btn-primary">Save</button>
+</form>

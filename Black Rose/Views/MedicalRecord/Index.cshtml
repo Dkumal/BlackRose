@@ -1,0 +1,81 @@
+﻿@{
+    ViewData["Title"] = "Medical Records";
+    Layout = "~/Views/Shared/admin/_Layout.cshtml";
+}
+
+@using Black_Rose.Models;
+@model Black_Rose.Models.PetModel;
+<div class="card card-info">
+    <div class="card-header">
+        <h3 class="card-title">Cari Hewan</h3>
+    </div>
+    <div class="card-body">
+        <form method="post" asp-controller="MedicalRecord" asp-action="Index" enctype="multipart/form-data">
+            <table>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label>Nama Hewan</label>
+                            <input type="text" class="form-control" id="namahewan" name="namahewan" />
+                        </div>
+                    </td>
+
+                    <td>
+                        <div class="form-group">
+                            <label>Nama Pemilik</label>
+                            <input type="text" class="form-control" id="pemilik" name="pemilik" />
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div class=" form-group">
+                <button type="submit" class="btn btn-primary">Search</button>
+                <button type="reset" class="btn btn-primary">Clear</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+    
+
+
+    <div class="card card-secondary">
+        <div class="card-header">
+            <h3 class="card-title">List Hewan</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        @*<td>No</td>*@
+                        <td>Nama Pemilik</td>
+                        <td>Nama Hewan</td>
+                        <td colspan="2" align="center">Action</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var data in ViewData["Listhewan"] as IEnumerable<Black_Rose.Models.PetModel>)
+                    {
+                        <tr>
+                            <td>@data.idpemilik </td>
+                            <td>@data.nama </td>
+                            <td><a href="/MedicalRecord/Examination/@data.id"><i class="icofont-search"></i>Examination</a></td>
+                            <td><a href="/MedicalRecord/History/@data.id"><i class="icofont-history"></i>History</a></td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+<div class="col-12">
+    @*<button type="button" class="btn btn-primary" onclick="ToCreate()">New Pet</button>*@
+    
+</div>
+
+<script>
+    function ToCreate() {
+        window.location = "https://localhost:44360/pets/AddPage";
+    };
+</script>
+

@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Examination";
+    Layout = "~/Views/Shared/admin/_Layout.cshtml";
+}
+
+@using Black_Rose.Models;
+@model Black_Rose.Models.PetModel;
+
+<div class="col-12">
+    @*<button type="button" class="btn btn-primary" onclick="ToCreate()">New Pet</button>*@
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                @*<td>No</td>*@
+                <td>Nama Pemilik</td>
+                <td>Nama Hewan</td>
+                <td>Jenis</td>
+                <td>Klasifikasi</td>
+                <td colspan="2" align="center">Action</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var data in ViewData["Pets"] as IEnumerable<Black_Rose.Models.PetModel>)
+            {
+                <tr>
+                    <td>@data.idpemilik </td>
+                    <td>@data.nama </td>
+                    <td>@data.jenis</td>
+                    <td>@data.idklasifikasi</td>
+                    <td><a href="/pets/editpage/@data.id">Edit</a></td>
+                    <td><a href="/pets/delete/@data.id">Delete</a></td>
+
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+
+<script>
+    function ToCreate() {
+        window.location = "/pets/AddPage";
+    };
+</script>

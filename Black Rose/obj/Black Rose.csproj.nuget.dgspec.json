@@ -1,0 +1,100 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\G\\latian\\Black Rose\\Black Rose\\Black Rose\\Black Rose.csproj": {}
+  },
+  "projects": {
+    "D:\\G\\latian\\Black Rose\\Black Rose\\Black Rose\\Black Rose.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\G\\latian\\Black Rose\\Black Rose\\Black Rose\\Black Rose.csproj",
+        "projectName": "Black Rose",
+        "projectPath": "D:\\G\\latian\\Black Rose\\Black Rose\\Black Rose\\Black Rose.csproj",
+        "packagesPath": "C:\\Users\\andika.rizky\\.nuget\\packages\\",
+        "outputPath": "D:\\G\\latian\\Black Rose\\Black Rose\\Black Rose\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\andika.rizky\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.305\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+          "http://202.58.182.74/BinusNuget/nuget": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://ecomindo.pkgs.visualstudio.com/Nexus/_packaging/Nexus.Base/nuget/v3/index.json": {},
+          "https://pkgs.dev.azure.com/itbinus/_packaging/Binus.WS.Pattern/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[6.32.0, )"
+            },
+            "NETCore.Encrypt": {
+              "target": "Package",
+              "version": "[2.0.9, )"
+            },
+            "NPoco": {
+              "target": "Package",
+              "version": "[5.1.2, )"
+            },
+            "Npgsql": {
+              "target": "Package",
+              "version": "[5.0.7, )"
+            },
+            "Select.HtmlToPdf.NetCore": {
+              "target": "Package",
+              "version": "[22.1.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.32.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.305\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,80 @@
+﻿@{
+    ViewData["Title"] = "Edit Patient";
+    Layout = "~/Views/Shared/admin/_Layout.cshtml";
+
+}
+
+@using Black_Rose.Models;
+@model Black_Rose.Models.PatientModel;
+
+@{
+    PatientModel data = (PatientModel)ViewData["patient"];
+    var firstname = data.first_name;
+    var lastname = data.last_name;
+    var address = data.address;
+    var email = data.email;
+    var ktp = data.ktp;
+    var phone = data.phone;
+    var id = data.id;
+
+}
+
+<form method="post" asp-controller="Patient" asp-action="edit" enctype="multipart/form-data">
+    <div class="form-group">
+        <label>First Name</label>
+        <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Insert First Name" value="@firstname" />
+    </div>
+    <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Insert Last Name" value="@lastname"/>
+    </div>
+    <div class="form-group">
+        <label>Address</label>
+        <input type="text" class="form-control" id="address" name="address" placeholder="Insert Address" value="@address"/>
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Insert Email" value="@email"/>
+    </div>
+    <div class="form-group">
+        <label>KTP</label>
+        <input type="text" class="form-control" id="ktp" name="ktp" placeholder="Insert KTP Number" value="@ktp"/>
+    </div>
+    <div class="form-group">
+        <label>Phone</label>
+        <input type="text" class="form-control" id="phone" name="phone" placeholder="Insert Phone Number" value="@phone"/>
+    </div>
+        <input type="hidden" id="id" name="id" value="@id.ToString()" />
+        <button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+<script type="text/javascript">
+    function setInputFilter(textbox, inputFilter) {
+        ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function (event) {
+            textbox.addEventListener(event, function () {
+                if (inputFilter(this.value)) {
+                    this.oldValue = this.value;
+                    this.oldSelectionStart = this.selectionStart;
+                    this.oldSelectionEnd = this.selectionEnd;
+                } else if (this.hasOwnProperty("oldValue")) {
+                    this.value = this.oldValue;
+                    this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+                } else {
+                    this.value = "";
+                }
+            });
+        });
+    }
+
+
+    // Install input filters.
+    setInputFilter(document.getElementById("ktp"), function (value) {
+        return /^-?\d*$/.test(value);
+    });
+
+    setInputFilter(document.getElementById("phone"), function (value) {
+        return /^-?\d*$/.test(value);
+    });
+
+
+</script>
