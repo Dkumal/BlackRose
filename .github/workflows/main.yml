@@ -26,7 +26,10 @@ jobs:
 
     - name: Publish the application
       run: dotnet publish -c Release -o publish
-
+      
+    - name: Change base-tag in index.html from / to BlazorGitHubPagesDemo
+      run: sed -i 's/<base href="\/" \/>/<base href="\/BlackRose\/" \/>/g' release/wwwroot/index.html
+    
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
